@@ -42,8 +42,7 @@ def collect_hh_vacancies(languages):
                 page += 1
 
                 page_vacancies = page_payload["items"]
-                for vacancy in page_vacancies:
-                    vacancies[language].append(vacancy)
+                vacancies[language].extend(page_vacancies)
                 time.sleep(0.5)
             except requests.exceptions.HTTPError:
                 time.sleep(1)
